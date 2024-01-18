@@ -1,12 +1,25 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import pandas as pd
+from datetime import datetime
+import os 
+import sys
+
+app_path = os.path.dirname(sys.executable)
+
+now = datetime.now()
+month_day_year = now.strftime("%m%d%Y") #convert datetime to string format MMDDYYYY
 
 website = "https://www.wired.com/"
 path = "C:\Chrome Driver\chromedriver-win64\chromedriver.exe"
 
+#headless-mode
+options = Options()
+options.add_argument('--headless=new')
+
 service = Service(executable_path=path)
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service, options=options)
 driver.get(website)
 
 # while(True):
@@ -25,6 +38,6 @@ for container in containers:
 
 my_dict = {'title': titles, 'link': links}
 df_headlines = pd.DataFrame(my_dict)
-df_headlines.to_csv('headline.csv')
+df_headlines.to_csv(f'headline-{month_day_year}.csv')
 
 driver.quit()
