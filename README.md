@@ -50,8 +50,8 @@ The Automated News Web Scraper is an automated script designed to run daily, col
    3. Go to Actions > New
    4. In Program/Script, add the path to the Python executable file.
    5. In the "Add arguments (optional)” box, add the name of your Python file (news-headlines.exe).
-   6. In the "Start in (optional)" box, add the location of that python file.
-   7. Go to “Triggers” > New , and schedule script to run daily and choose time you prefer
+   6. In the "Start in (optional)" box, add the location of that Python file.
+   7. Go to “Triggers” > New, and schedule the script to run daily and choose the time you prefer
 
 
 
